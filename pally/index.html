@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="./style.css">
+  <title>Search Engine</title>
+</head>
+
+<body>
+  <div class="search-container">
+    <h1 class="heading">Voice/Audio to text Engine</h1>
+    <div class="dialogue">
+      <div id="result"></div>
+      <div id="bot"></div>
+    </div>
+    <div class="action-btns">
+      <!-- Add pause and continue conversation buttons -->
+      <button id="pauseButton" class="buttonCenter" style="display: none;">Pause Conversation</button>
+      <button id="continueButton" class="buttonCenter" style="display: none;">Continue Conversation</button>
+      <button id="recordButton" class="buttonCenter"><span class="material-symbols-outlined">
+          mic
+        </span></button>
+      <button id="viewWords"><span class="material-symbols-outlined">
+          chat_apps_script
+        </span></button>
+    </div>
+    <div class="file-player">
+      <audio id="audioPlayer" controls style="display: none"></audio>
+      <input type="file" id="audioFileInput" style="display: none" />
+    </div>
+    <div id="actions" style="display: none">
+      <button id="saveButton" class="buttonCenter">Save Text</button>
+      <button id="searchButton" class="buttonCenter">Search on the Web</button>
+    </div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+
+</html>
