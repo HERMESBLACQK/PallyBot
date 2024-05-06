@@ -32,7 +32,7 @@
         <link href="css/icons.css" rel="stylesheet" />
         
 	        <!-- Data Table CSS -->
-	        <link href="http://googlespeech.berkine.space/plugins/datatable/datatables.min.css" rel="stylesheet" />
+	        <link href="plugins/datatable/datatables.min.css" rel="stylesheet" />
         
         <!-- Style css -->
         <link href="css/app.css" rel="stylesheet" />
@@ -61,7 +61,7 @@
 				        <!-- SIDE MENU BAR -->
         <aside class="app-sidebar"> 
 	  <div class="app-sidebar__logo">
-	      <a class="header-brand" href="http://googlespeech.berkine.space">
+	      <a class="header-brand" href=""">
 		<img src="img/brand/logo.png" class="header-brand-img desktop-lgo" alt="Admintro logo">
 		<img src="img/brand/favicon.png" class="header-brand-img mobile-logo" alt="Admintro logo">
 	      </a>
@@ -191,7 +191,7 @@
 					  <span class="font-weight-normal fs-12">Español</span>
 				        </div>
 				    </a>                                        
-													      <a href="http://googlespeech.berkine.space/locale/fr" class="dropdown-item d-flex pl-4">
+													      <a href="locale/fr" class="dropdown-item d-flex pl-4">
 				        <div class="text-info"><i class="flag flag-fr mr-4"></i></div>
 				        <div>
 					  <span class="font-weight-normal fs-12">Français</span>
@@ -201,9 +201,9 @@
 		        </div>
 		    </div>                
 		    <div class="dropdown profile-dropdown">
-		        <a href="http://googlespeech.berkine.space/#" class="nav-link" data-toggle="dropdown">
+		        <a href="#" class="nav-link" data-toggle="dropdown">
 			  <span class="float-right">
-			      <img src=" http://googlespeech.berkine.space/img/users/avatar.jpg " alt="img" class="avatar avatar-md">
+			      <img src=" img/users/avatar.jpg " alt="img" class="avatar avatar-md">
 			  </span>
 		        </a>
 		        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow animated">
@@ -212,24 +212,24 @@
 			      <span class="text-center fs-12 text-muted">Happy Person</span>
 			      <div class="dropdown-divider"></div>
 			  </div>
-			  <a class="dropdown-item d-flex" href="http://googlespeech.berkine.space/user/stt/results">
+			  <a class="dropdown-item d-flex" href="user/stt/results">
 			      <span class="profile-icon mdi mdi-audiobook"></span>
 			      <div class="fs-12">Transcribe Results</div>
 			  </a>
-			  <a class="dropdown-item d-flex" href="http://googlespeech.berkine.space/user/profile">
+			  <a class="dropdown-item d-flex" href="user/profile">
 			      <span class="profile-icon mdi mdi-account-edit"></span>
 			      <div class="fs-12">Profile</div>
 			  </a>
-			  <a class="dropdown-item d-flex" href="http://googlespeech.berkine.space/user/profile/password">
+			  <a class="dropdown-item d-flex" href="user/profile/password">
 			      <span class="profile-icon mdi mdi-account-key"></span>
 			      <div class="fs-12">Change Password</div>
 			  </a>
-			  <a class="dropdown-item d-flex" href="http://googlespeech.berkine.space/logout" onclick="event.preventDefault();
+			  <a class="dropdown-item d-flex" href="logout" onclick="event.preventDefault();
 			      document.getElementById('logout-form').submit();"> 
 			      <span class="profile-icon mdi mdi-upload-network"></span>          
 			      <div class="fs-12">Logout</div>                            
 			  </a>
-			  <form id="logout-form" action="http://googlespeech.berkine.space/logout" method="POST" class="d-none">
+			  <form id="logout-form" action="logout" method="POST" class="d-none">
 			      <input type="hidden" name="_token" value="tTq7vc9L9F4o1csdNMYaIvOOkjs28aa5TSnGprAh">                        </form>
 		        </div>
 		    </div>
@@ -246,7 +246,7 @@
 	<div class="page-leftheader">
 		<h4 class="page-title mb-0">Record &amp; Transcribe</h4>
 		<ol class="breadcrumb mb-2">
-			<li class="breadcrumb-item"><a href="http://googlespeech.berkine.space/user/stt/file"><i class="fa fa-magic mr-2 fs-12"></i>User</a></li>
+			<li class="breadcrumb-item"><a href="user/stt/file"><i class="fa fa-magic mr-2 fs-12"></i>User</a></li>
 			<li class="breadcrumb-item" aria-current="page"><a href="#"> Speech-to-Text</a></li>
 			<li class="breadcrumb-item active" aria-current="page"><a href="#"> Record &amp; Transcribe</a></li>
 		</ol>
@@ -317,7 +317,7 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<form id="create-new-project" action="http://googlespeech.berkine.space/user/project" method="POST" enctype="multipart/form-data">
+				<form id="create-new-project" action="user/project" method="POST" enctype="multipart/form-data">
 					<input type="hidden" name="_token" value="tTq7vc9L9F4o1csdNMYaIvOOkjs28aa5TSnGprAh">					<div class="modal-body pb-0 pl-6 pr-6">        
 						<div class="input-box" id="textarea-box">
 							<input type="text" class="form-control" name="new-project" id="new-project" required>
@@ -347,7 +347,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-12 col-sm-12 text-center">
-                Copyright © 2024 <a href="https://googlespeech.berkine.space/">GoogleSpeech</a>. All rights reserved
+                Copyright © 2024 <a href="h">GoogleSpeech</a>. All rights reserved
             </div>
             <div class="col-md-12 col-sm-12 text-center">
                 <span class="fs-10 font-weight-bold text-info">v1.0.0</span>
@@ -432,7 +432,7 @@
 				},
 				colReorder: true,
 				language: {
-					"emptyTable": "<div><img id='no-results-img' src='http://googlespeech.berkine.space/img/files/no-result.png'><br>No transcribe tasks submitted yet</div>",
+					"emptyTable": "<div><img id='no-results-img' src='img/files/no-result.png'><br>No transcribe tasks submitted yet</div>",
 					search: "<i class='fa fa-search search-icon'></i>",
 					lengthMenu: '_MENU_ ',
 					paginate : {
@@ -445,7 +445,7 @@
 				pagingType : 'full_numbers',
 				processing: true,
 				serverSide: true,
-				ajax: "http://googlespeech.berkine.space/user/stt/record",
+				ajax: "user/stt/record",
 				columns: [{
 						"className":      'details-control',
 						"orderable":      false,
@@ -593,7 +593,7 @@
 <script type="text/javascript">
 
     function sendMarkRequest(id = null) {
-        return $.ajax("http://googlespeech.berkine.space/user/notifications/mark-as-read", {
+        return $.ajax("user/notifications/mark-as-read", {
             method: 'POST',
             data: {"_token": "tTq7vc9L9F4o1csdNMYaIvOOkjs28aa5TSnGprAh", id}
         });
