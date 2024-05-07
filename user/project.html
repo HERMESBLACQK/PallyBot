@@ -9,7 +9,7 @@
 		<meta name="keywords" content=""/>
 		
         <!-- CSRF TOKEN -->
-        <meta name="csrf-token" content="tTq7vc9L9F4o1csdNMYaIvOOkjs28aa5TSnGprAh">
+        <!-- <meta name="csrf-token" content="tTq7vc9L9F4o1csdNMYaIvOOkjs28aa5TSnGprAh"> -->
 
         <!-- TITLE -->
         <title>PallyBot</title>
@@ -68,22 +68,22 @@
 				  <hr class="slide-divider d-none">
 			<li class="side-item side-item-category">User Panel</li>
 		  <li class="slide">
-		      <a class="side-menu__item" href="user/stt/record.html">
+		      <a class="side-menu__item" href="record.html">
 		      <span class="side-menu__icon fa fa-magic"></span>
 		      <span class="side-menu__label">Record &amp; Transcribe</span></a>
 		  </li>
 		  <li class="slide">
-		      <a class="side-menu__item" href="user/stt/file.html">
+		      <a class="side-menu__item" href="file.html">
 		      <span class="side-menu__icon fa fa-magic"></span>
 		      <span class="side-menu__label">Upload &amp; Transcribe</span></a>
 		  </li>
 		  <li class="slide">
-		      <a class="side-menu__item" href="user/stt/results.html">
+		      <a class="side-menu__item" href="results.html">
 		      <span class="side-menu__icon mdi mdi-audiobook"></span>
 		      <span class="side-menu__label">Transcribe Results</span></a>
 		  </li>
 		  <li class="slide">
-		      <a class="side-menu__item" href="user/project.html">
+		      <a class="side-menu__item" href="project.html">
 		      <span class="side-menu__icon mdi mdi-archive"></span>
 		      <span class="side-menu__label">My Transcribe Projects</span></a>
 		  </li>
@@ -93,19 +93,19 @@
 			<span class="side-menu__label">My Profile Settings</span><i class="angle fa fa-angle-right"></i>
 		      </a>
 		      <ul class="slide-menu">
-			<li><a href="user/profile.html" class="slide-item">My Profile</a></li>
-			<li><a href="user/profile/password.html" class="slide-item">Change Password</a></li>
+			<li><a href="profile.html" class="slide-item">My Profile</a></li>
+			<li><a href="password.html" class="slide-item">Change Password</a></li>
 		      </ul>
 		  </li>
 					<li class="slide">
-			    <a class="side-menu__item" href="user/support.html">
+			    <a class="side-menu__item" href="support.html">
 			        <span class="side-menu__icon mdi mdi-account-alert"></span>
 			        <span class="side-menu__label">Support Request</span>
 			    </a>
 			</li>
 			    
 				  <li class="slide">
-			    <a class="side-menu__item" href="user/notification.html">
+			    <a class="side-menu__item" href="notification.html">
 			        <span class="side-menu__icon mdi mdi-upload-network"></span>
 			        <span class="side-menu__label">Notifications</span>
 					    
@@ -149,7 +149,7 @@
 		      <div id="search-bar">                
 			<div>
 			    <a class="nav-link icon">
-			        <form id="search-field" action="user/search.html" method="POST" enctype="multipart/form-data">         
+			        <form id="search-field" action="search.html" method="POST" enctype="multipart/form-data">         
 				  <input type="hidden" name="_token" value="tTq7vc9L9F4o1csdNMYaIvOOkjs28aa5TSnGprAh">                   
 				  <input type="search" name='keyword'>
 			        </form>                        
@@ -210,15 +210,15 @@
 				  <span class="text-center fs-12 text-muted">Happy Person</span>
 				  <div class="dropdown-divider"></div>
 			        </div>
-			        <a class="dropdown-item d-flex" href="user/stt/results.html">
+			        <a class="dropdown-item d-flex" href="results.html">
 				  <span class="profile-icon mdi mdi-audiobook"></span>
 				  <div class="fs-12">Transcribe Results</div>
 			        </a>
-			        <a class="dropdown-item d-flex" href="user/profile.html">
+			        <a class="dropdown-item d-flex" href="profile.html">
 				  <span class="profile-icon mdi mdi-account-edit"></span>
 				  <div class="fs-12">Profile</div>
 			        </a>
-			        <a class="dropdown-item d-flex" href="user/profile/password.html">
+			        <a class="dropdown-item d-flex" href="password.html">
 				  <span class="profile-icon mdi mdi-account-key"></span>
 				  <div class="fs-12">Change Password</div>
 			        </a>
@@ -227,7 +227,7 @@
 				  <span class="profile-icon mdi mdi-upload-network"></span>          
 				  <div class="fs-12">Logout</div>                            
 			        </a>
-			        <form id="logout-form" action="logout" method="POST" class="d-none">
+			        <form id="logout-form" action="logout.html" method="POST" class="d-none">
 				  <input type="hidden" name="_token" value="tTq7vc9L9F4o1csdNMYaIvOOkjs28aa5TSnGprAh">                        </form>
 			    </div>
 			</div>
@@ -244,7 +244,7 @@
 	<div class="page-leftheader">
 		<h4 class="page-title mb-0">My Transcribe Project Data</h4>
 		<ol class="breadcrumb mb-2">
-			<li class="breadcrumb-item"><a href="./user/stt/file"><i class="mdi mdi-archive mr-2 fs-12"></i>User</a></li>
+			<li class="breadcrumb-item"><a href="file.html"><i class="mdi mdi-archive mr-2 fs-12"></i>User</a></li>
 			<li class="breadcrumb-item active" aria-current="page"><a href="#"> Transcribe Projects</a></li>
 		</ol>
 	</div>
@@ -360,7 +360,7 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<form id="create-new-project" action="./user/project" method="POST" enctype="multipart/form-data">					
+				<form id="create-new-project" action="project.html" method="POST" enctype="multipart/form-data">					
 					<input type="hidden" name="_token" value="tTq7vc9L9F4o1csdNMYaIvOOkjs28aa5TSnGprAh">					<div class="modal-body pb-0 pl-6 pr-6">        
 						<div class="input-box" id="textarea-box">
 							<input type="text" class="form-control" name="new-project" id="new-project" required>
@@ -389,7 +389,7 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<form action="./user/project" method="POST" enctype="multipart/form-data">
+				<form action="project.html" method="POST" enctype="multipart/form-data">
 					<input type="hidden" name="_method" value="PUT">					<input type="hidden" name="_token" value="tTq7vc9L9F4o1csdNMYaIvOOkjs28aa5TSnGprAh">					<div class="modal-body pb-0 pl-6 pr-6">        
 						<div class="input-box">	
 							<select id="set-project" name="project" data-placeholder="Select Default Project Name:">			
@@ -416,7 +416,7 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<form action="./user/project" method="POST" enctype="multipart/form-data">
+				<form action="project.html" method="POST" enctype="multipart/form-data">
 					<input type="hidden" name="_method" value="DELETE">					<input type="hidden" name="_token" value="tTq7vc9L9F4o1csdNMYaIvOOkjs28aa5TSnGprAh">					<div class="modal-body pb-0 pl-6 pr-6">        
 						<div class="input-box">	
 							<p class="text-danger mb-3 fs-12">Warning: All transcribe results under this name will be deleted too</p>
@@ -444,7 +444,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-12 col-sm-12 text-center">
-                Copyright © 2024 <a href="h./">GoogleSpeech</a>. All rights reserved
+                Copyright © 2024 <a href="/">PallyBot</a>. All rights reserved
             </div>
             <div class="col-md-12 col-sm-12 text-center">
                 <span class="fs-10 font-weight-bold text-info">v1.0.0</span>
@@ -462,26 +462,26 @@
 <a href="#top" id="back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
 <!-- Jquery js-->
-<script src="./js/jquery-3.6.0.min.js"></script>
+<script src="js/jquery-3.6.0.min.js"></script>
 
 <!-- Bootstrap4 js-->
-<script src="./plugins/bootstrap/popper.min.js"></script>
-<script src="./plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="plugins/bootstrap/popper.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
 
 <!--Sidemenu js-->
-<script src="./plugins/sidemenu/sidemenu.js"></script>
+<script src="plugins/sidemenu/sidemenu.js"></script>
 
 <!-- P-scroll js-->
-<script src="./plugins/p-scrollbar/p-scrollbar.js"></script>
-<script src="./plugins/p-scrollbar/p-scroll.js"></script>
+<script src="plugins/p-scrollbar/p-scrollbar.js"></script>
+<script src="plugins/p-scrollbar/p-scroll.js"></script>
 
 	<!-- Data Tables JS -->
-	<script src="./plugins/datatable/datatables.min.js"></script>
+	<script src="plugins/datatable/datatables.min.js"></script>
 	<!-- Awselect JS -->
-	<script src="./plugins/awselect/awselect.min.js"></script>
-	<script src="./plugins/audio-player/green-audio-player.js"></script>
-	<script src="./js/audio-player.js"></script>
-	<script src="./js/awselect.js"></script>
+	<script src="plugins/awselect/awselect.min.js"></script>
+	<script src="plugins/audio-player/green-audio-player.js"></script>
+	<script src="js/audio-player.js"></script>
+	<script src="js/awselect.js"></script>
 	<script type="text/javascript">
 	let table;
 		$(function () {
@@ -547,7 +547,7 @@
 				pagingType : 'full_numbers',
 				processing: true,
 				serverSide: true,
-				ajax: "./user/project",
+				ajax: "project.html",
 				columns: [{
 						"className":      'details-control',
 						"orderable":      false,
@@ -812,13 +812,13 @@
 	</script>
 
 <!-- Simplebar JS -->
-<script src="./plugins/simplebar/js/simplebar.min.js"></script>
+<script src="plugins/simplebar/js/simplebar.min.js"></script>
 
 <!-- Flash JS -->
-<script src="./plugins/flashjs/dist/flash.min.js"></script>
+<script src="plugins/flashjs/dist/flash.min.js"></script>
 
 <!-- Custom js-->
-<script src="./js/custom.js"></script>
+<script src="js/custom.js"></script>
 
 <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148887469-1"></script>
