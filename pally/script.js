@@ -183,7 +183,7 @@ async function searchWeb(query) {
   }
 }
 
-const openAiKey = "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";
+const openAiKey = "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";
 const messages = [];
 
 async function sendTranslatedTextToGpt(translatedText) {
