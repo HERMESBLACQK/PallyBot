@@ -45,7 +45,7 @@ recordButton.addEventListener("click", async () => {
 
     recognition.onresult = async (event) => {
       recognizedText = event.results[0][0].transcript;
-      resultDiv.innerHTML = `<br><div style="display: flex; align-items: center;<div style="border: 1px solid #eaa5ea; border-radius: 50%; height: 40px; width: 40px; margin-right:  5px; display:flex; justify-content: center; "> <img src="images/avatar.jpg" alt="User Icon" style="width: 30px; height: 30px;"> </div> ${recognizedText} </div>`;
+      resultDiv.innerHTML = `<br><div style="display: flex; align-items: center; justify-content: right;><div style="border: 1px solid #eaa5ea; border-radius: 50%; height: 40px; width: 40px; margin-right:  5px; display:flex; justify-content: center; "> <img src="images/avatar.jpg" alt="User Icon" style="width: 30px; height: 30px;"> </div> ${recognizedText} </div>`;
       texts.push(recognizedText);
       sendTranslatedTextToGpt(recognizedText).then(gptRes => {
         botDiv.innerHTML += `<br> <div style="display: flex; align-items: center; padding: 5px; border-radius: 5px;  box-shadow: 0px 4px 16px rgba(17,17,26,0.1), 0px 8px 24px rgba(17,17,26,0.1), 0px 16px 56px rgba(17,17,26,0.1);"> <div style="border: 1px solid #eaa5ea; border-radius: 50%; height: 40px; width: 40px; margin-right:  5px; display:flex; justify-content: center; "> <img src="images/favicon.png" alt="Pally Icon" style="width: 30px; height: 30px;"> </div> ${gptRes}</div>`
