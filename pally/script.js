@@ -152,7 +152,7 @@ function recognizeSpeechFromAudio(audio_data) {
 
 saveButton.addEventListener("click", () => {
   alert("Text saved: " + recognizedText);
-  actionsDiv.style.display = "none";
+  actionsDiv.style.display = "block";
 });
 
 searchButton.addEventListener("click", () => {
