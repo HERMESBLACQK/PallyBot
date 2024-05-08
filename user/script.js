@@ -1,4 +1,3 @@
-console.log("connected to pally script")
 const viewWords = document.getElementById("viewWords");
 const recordButton = document.getElementById("recordButton");
 const pauseButton = document.getElementById("pauseButton");
@@ -13,7 +12,7 @@ const actionsDiv = document.getElementById("actions");
 const dialogueBox = document.querySelector(".dialogue");
 let recognition;
 let recognizedText;
-const texts = [];
+const texts = []; 
 
 // Create play button
 const playButton = document.createElement("button");
@@ -39,7 +38,6 @@ actionsDiv.appendChild(playButton);
 actionsDiv.appendChild(pausePlaybackButton);
 
 recordButton.addEventListener("click", async () => {
-  console.log(recordButton);
   if (!recognition) {
     recognition = new webkitSpeechRecognition(); // Use webkitSpeechRecognition for Chrome
     recognition.continuous = true; // Set to true for continuous recognition
@@ -47,10 +45,10 @@ recordButton.addEventListener("click", async () => {
 
     recognition.onresult = async (event) => {
       recognizedText = event.results[0][0].transcript;
-      resultDiv.innerHTML = `<br><strong>You said:</strong> ${recognizedText}`;
+      resultDiv.innerHTML = `<br><div style="display: flex; align-items: center; justify-content: right;"><div style=" border-radius: 50%; height: 45px; width: 45px; padding: 5px; display:flex; justify-content: center; border: 1px solid #eaa5ea; margin-right: 5px;"> <img src="images/avatar.jpg" alt="User Icon" style="width: 30px; height: 30px; border-radius 50%:;"> </div> ${recognizedText} </div>`;
       texts.push(recognizedText);
       sendTranslatedTextToGpt(recognizedText).then(gptRes => {
-        botDiv.innerHTML += `<br><strong>Pally said:</strong> 🤖 ${gptRes}`
+        botDiv.innerHTML += `<br> <div style="display: flex; align-items: center; padding: 5px; border-radius: 5px;  box-shadow: 0px 4px 16px rgba(17,17,26,0.1), 0px 8px 24px rgba(17,17,26,0.1), 0px 16px 56px rgba(17,17,26,0.1);"> <div style="border: 1px solid #eaa5ea; border-radius: 50%; height: 40px; width: 40px; margin-right:  5px; display:flex; justify-content: center; "> <img src="images/favicon.png" alt="Pally Icon" style="width: 30px; height: 30px;"> </div> ${gptRes}</div>`
         texts.push(`<b>Pally</b> ${gptRes}`);
       });
       recognition.stop();

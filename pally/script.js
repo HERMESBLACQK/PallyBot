@@ -12,7 +12,7 @@ const actionsDiv = document.getElementById("actions");
 const dialogueBox = document.querySelector(".dialogue");
 let recognition;
 let recognizedText;
-const texts = []; 
+const texts = [];
 
 // Create play button
 const playButton = document.createElement("button");
@@ -46,10 +46,10 @@ recordButton.addEventListener("click", async () => {
     recognition.onresult = async (event) => {
       recognizedText = event.results[0][0].transcript;
       resultDiv.innerHTML = `<br><div style="display: flex; align-items: center; justify-content: right;"><div style=" border-radius: 50%; height: 45px; width: 45px; padding: 5px; display:flex; justify-content: center; border: 1px solid #eaa5ea; margin-right: 5px;"> <img src="images/avatar.jpg" alt="User Icon" style="width: 30px; height: 30px; border-radius 50%:;"> </div> ${recognizedText} </div>`;
-      texts.push(recognizedText);
-      sendTranslatedTextToGpt(recognizedText).then(gptRes => {
-        botDiv.innerHTML += `<br> <div style="display: flex; align-items: center; padding: 5px; border-radius: 5px;  box-shadow: 0px 4px 16px rgba(17,17,26,0.1), 0px 8px 24px rgba(17,17,26,0.1), 0px 16px 56px rgba(17,17,26,0.1);"> <div style="border: 1px solid #eaa5ea; border-radius: 50%; height: 40px; width: 40px; margin-right:  5px; display:flex; justify-content: center; "> <img src="images/favicon.png" alt="Pally Icon" style="width: 30px; height: 30px;"> </div> ${gptRes}</div>`
-        texts.push(`<b>Pally</b> ${gptRes}`);
+      texts.push({ recognizedText }); // Store recognized text in array with object format
+      await sendTranslatedTextToGpt(recognizedText).then(gptRes => {
+        texts[texts.length - 1].gptRes = gptRes; // Store corresponding GPT response in the array
+        renderTexts(); // Render the texts array after each GPT response
       });
       recognition.stop();
       recognition.start();
@@ -94,12 +94,18 @@ continueButton.addEventListener("click", () => {
 
 viewWords.addEventListener("click", (e) => {
   dialogueBox.innerHTML = "";
-  texts.forEach((txt) => {
+  renderTexts(); // Render the texts array when viewing words
+});
+
+// Function to render the texts array in the dialogue box
+function renderTexts() {
+  dialogueBox.innerHTML = "";
+  texts.forEach(({ recognizedText, gptRes }) => {
     const p = document.createElement("p");
-    p.innerHTML = ` <div class="words">${txt}</div>`;
+    p.innerHTML = `<div class="recognized-text">${recognizedText}</div><div class="gpt-response">${gptRes}</div>`;
     dialogueBox.appendChild(p);
   });
-});
+}
 
 audioFileInput.addEventListener("change", async (event) => {
   const file = event.target.files[0];
