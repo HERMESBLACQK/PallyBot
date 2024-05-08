@@ -48,7 +48,7 @@ recordButton.addEventListener("click", async () => {
       resultDiv.innerHTML = `<br><strong>You said:</strong> ${recognizedText}`;
       texts.push(recognizedText);
       sendTranslatedTextToGpt(recognizedText).then(gptRes => {
-        botDiv.innerHTML += `<br> <div style="display: flex; align-items: center; border: 2px solid red;"> <img src="images/favicon.png" alt="Pally Icon" style="width: 20px; height: 20px; vertical-align: middle;"> ${gptRes}</div>`
+        botDiv.innerHTML += `<br> <div style="display: flex; align-items: center; border: 2px solid red;"> <img src="images/favicon.png" alt="Pally Icon" style="width: 20px; height: 20px; margin-right: 5px;"> ${gptRes}</div>`
         texts.push(`<b>Pally</b> ${gptRes}`);
       });
       recognition.stop();
