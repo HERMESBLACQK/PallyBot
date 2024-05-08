@@ -102,7 +102,8 @@ function renderTexts() {
   dialogueBox.innerHTML = "";
   texts.forEach(({ recognizedText, gptRes }) => {
     const p = document.createElement("p");
-    p.innerHTML = `<div class="recognized-text">${recognizedText}</div><div class="gpt-response">${gptRes}</div>`;
+    p.innerHTML = `<div style="display: flex; align-items: center; justify-content: right;"><div style=" border-radius: 50%; height: 45px; width: 45px; padding: 5px; display:flex; justify-content: center; border: 1px solid #eaa5ea; margin-right: 5px;"> <img src="images/avatar.jpg" alt="User Icon" style="width: 30px; height: 30px; border-radius 50%:;"> </div> ${recognizedText} </div>
+    <div style="display: flex; align-items: center; padding: 5px; border-radius: 5px;  box-shadow: 0px 4px 16px rgba(17,17,26,0.1), 0px 8px 24px rgba(17,17,26,0.1), 0px 16px 56px rgba(17,17,26,0.1);"> <div style="border: 1px solid #eaa5ea; border-radius: 50%; height: 40px; width: 40px; margin-right:  5px; display:flex; justify-content: center; "> <img src="images/favicon.png" alt="Pally Icon" style="width: 30px; height: 30px;"> </div> ${gptRes}</div>`;
     dialogueBox.appendChild(p);
   });
 }
