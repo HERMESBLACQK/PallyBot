@@ -12,7 +12,7 @@ const actionsDiv = document.getElementById("actions");
 const dialogueBox = document.querySelector(".dialogue");
 let recognition;
 let recognizedText;
-const texts = [];
+const texts = []; 
 
 // Create play button
 const playButton = document.createElement("button");
@@ -48,7 +48,7 @@ recordButton.addEventListener("click", async () => {
       resultDiv.innerHTML = `<br><strong>You said:</strong> ${recognizedText}`;
       texts.push(recognizedText);
       sendTranslatedTextToGpt(recognizedText).then(gptRes => {
-        botDiv.innerHTML += `<br><strong>Pally said:</strong> 🤖 ${gptRes}`
+        botDiv.innerHTML += `<br> <div style="display: flex; align-items: center; border: 2px solid red;"> <img src="images/favicon.png" alt="Pally Icon" style="width: 20px; height: 20px; vertical-align: middle;"> ${gptRes}</div>`
         texts.push(`<b>Pally</b> ${gptRes}`);
       });
       recognition.stop();
