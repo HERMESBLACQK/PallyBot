@@ -231,7 +231,6 @@ async function searchWeb(query) {
   }
 }
 
-// const openAiKey = "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";
 const messages = [];
 
 async function sendTranslatedTextToGpt(translatedText) {
