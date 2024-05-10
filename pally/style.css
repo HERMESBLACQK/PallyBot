@@ -27,17 +27,27 @@ body{
     font-weight: 300;
     font-style: normal;
   }
+  .big-container{
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid green;
+    width: 100%;
+  }
   .search-container{
     position: relative;
     /* border: .25rem solid tomato; */
     bottom: 0;
-    width: 100%;
+    width: 80%;
     /* max-width: 40vh; */
-    margin: auto;
+    /* margin: auto; */
     height: 96vh;
     border: 2px solid rgb(161, 158, 158);
     border-radius: 5px;
     box-shadow: 0px 4px 16px rgba(17,17,26,0.1), 0px 8px 24px rgba(17,17,26,0.1), 0px 16px 56px rgba(17,17,26,0.1);
+  }
+  .saved-results{
+    border: 2px solid red;
+    width: 20%;
   }
   .heading{
     position: absolute;
@@ -79,11 +89,60 @@ body{
     /* border-radius: 1rem; */
     left: auto;
     right: auto;
-    bottom: 0;
+    bottom: 9%;
     width: 100%;
     margin: auto;
     display: flex;
     justify-content: space-between;
+}
+.action-inputs{
+  position: absolute;
+  border: 1px solid rgb(157, 157, 157);
+  /* border-radius: 1rem; */
+  left: auto;
+  right: auto;
+  bottom: 0;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.action-inputs input{
+width: 96%;
+padding: 5px;
+outline: none;
+font-size: 1rem;
+text-justify: auto;
+}
+#send-btn{
+  margin: 0;
+}
+.prompt-history {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.prompt-item {
+  margin-bottom: 10px;
+}
+
+.user-prompt {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.ai-response {
+  background-color: #e9ecef;
+  padding: 10px;
+  border-radius: 8px;
+  display: inline-block;
 }
 
  /* Add animation to the record button */

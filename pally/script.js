@@ -10,9 +10,38 @@ const resultDiv = document.getElementById("result");
 const botDiv = document.getElementById('bot');
 const actionsDiv = document.getElementById("actions");
 const dialogueBox = document.querySelector(".dialogue");
+const inputField = document.querySelector("input[type='text']");
+const sendButton = document.getElementById("send-btn");
 let recognition;
 let recognizedText;
 const texts = [];
+
+const promptHistoryDiv = document.getElementById("promptHistory");
+const newPromptBtn = document.getElementById("newPromptBtn");
+
+// Function to render the prompt history
+function renderPromptHistory() {
+  const promptHistoryDiv = document.getElementById("promptHistory");
+
+  // Clear existing content
+  promptHistoryDiv.innerHTML = "";
+
+  texts.forEach(({ recognizedText, gptRes }) => {
+    const promptItem = document.createElement("div");
+    promptItem.classList.add("prompt-item");
+    promptItem.innerHTML = `
+      <div class="user-prompt">${recognizedText}</div>
+      <div class="ai-response">${gptRes}</div>
+    `;
+    promptHistoryDiv.appendChild(promptItem);
+  });
+}
+
+// Event listener for the "Create New Prompt History" button
+newPromptBtn.addEventListener("click", () => {
+  texts.length = 0; // Clear the texts array to start a new prompt history
+  renderPromptHistory(); // Render the updated prompt history
+});
 
 // Create play button
 const playButton = document.createElement("button");
@@ -36,6 +65,20 @@ pausePlaybackButton.addEventListener("click", () => {
 // Append play and pause buttons to actionsDiv
 actionsDiv.appendChild(playButton);
 actionsDiv.appendChild(pausePlaybackButton);
+
+// Function to handle sending text from input field
+sendButton.addEventListener("click", () => {
+  const inputText = inputField.value.trim();
+  if (inputText) {
+    texts.push({ recognizedText: inputText });
+    sendTranslatedTextToGpt(inputText).then(gptRes => {
+      texts[texts.length - 1].gptRes = gptRes;
+      renderTexts();
+    });
+    inputField.value = ""; // Clear input field after sending text
+  }
+});
+
 
 recordButton.addEventListener("click", async () => {
   if (!recognition) {
@@ -102,11 +145,16 @@ function renderTexts() {
   dialogueBox.innerHTML = "";
   texts.forEach(({ recognizedText, gptRes }) => {
     const p = document.createElement("p");
-    p.innerHTML = `<div style="display: flex; align-items: center; justify-content: right;"><div style=" border-radius: 50%; height: 45px; width: 45px; padding: 5px; display:flex; justify-content: center; border: 1px solid #eaa5ea; margin-right: 5px;"> <img src="images/avatar.jpg" alt="User Icon" style="width: 30px; height: 30px; border-radius 50%:;"> </div> ${recognizedText} </div>
-    <div style="display: flex; align-items: center; padding: 5px; border-radius: 5px;  box-shadow: 0px 4px 16px rgba(17,17,26,0.1), 0px 8px 24px rgba(17,17,26,0.1), 0px 16px 56px rgba(17,17,26,0.1);"> <div style="border: 1px solid #eaa5ea; border-radius: 50%; height: 40px; width: 40px; margin-right:  5px; display:flex; justify-content: center; "> <img src="images/favicon.png" alt="Pally Icon" style="width: 30px; height: 30px;"> </div> ${gptRes}</div>`;
+    p.innerHTML = `<div style="display: flex; align-items: center;  margin-bottom: 5px; justify-content: right;"><div style=" border-radius: 50%; height: 45px; width: 45px; padding: 5px; display:flex; justify-content: center; border: 1px solid #eaa5ea; margin-right: 5px;"> <img src="images/avatar.jpg" alt="User Icon" style="width: 30px; height: 30px; border-radius 50%:;"> </div> ${recognizedText} </div>
+    <div style=" padding: 10px; border-radius: 5px;  box-shadow: 0px 4px 16px rgba(17,17,26,0.1), 0px 8px 24px rgba(17,17,26,0.1), 0px 16px 56px rgba(17,17,26,0.1);"> <div style="display:flex; justify-content: left; width:90%;"><div style="border: 1px solid #eaa5ea; border-radius: 50%; height: 40px; width: 40px; margin-right:  15px; display:flex; justify-content: center; "> <img src="images/favicon.png" alt="Pally Icon" style="width: 30px; height: 30px;"> </div>  <p> PallyBot Responding...</p> </div> <div> ${gptRes}</div></div>`;
     dialogueBox.appendChild(p);
   });
+
+  // Scroll to the bottom of the dialogue box
+  dialogueBox.scrollTop = dialogueBox.scrollHeight;
 }
+// Call renderPromptHistory initially to render the prompt history on page load
+renderPromptHistory();
 
 audioFileInput.addEventListener("change", async (event) => {
   const file = event.target.files[0];
@@ -183,7 +231,7 @@ async function searchWeb(query) {
   }
 }
 
-const openAiKey = "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";
+// const openAiKey = "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";
 const messages = [];
 
 async function sendTranslatedTextToGpt(translatedText) {

@@ -12,32 +12,46 @@
 </head>
 
 <body>
-  <div class="search-container">
-    <!-- <h1 class="heading">Voice/Audio to text Engine</h1> -->
-    <div class="dialogue">
-      <div id="result"></div>
-      <div id="bot"></div>
-    </div>
-    <div class="action-btns">
-      <!-- Add pause and continue conversation buttons -->
-      <button id="pauseButton" class="buttonCenter" style="display: none;">Pause Conversation</button>
-      <button id="continueButton" class="buttonCenter" style="display: none;">Continue Conversation</button>
-      <button id="recordButton" class="buttonCenter"><span class="material-symbols-outlined">
-          mic
+  <div class="big-container">
+
+    <div class="search-container">
+      <!-- <h1 class="heading">Voice/Audio to text Engine</h1> -->
+      <div class="dialogue">
+        <div id="result"></div>
+        <div id="bot"></div>
+      </div>
+      <div class="action-btns">
+        <!-- Add pause and continue conversation buttons -->
+        <button id="pauseButton" class="buttonCenter" style="display: none;">Pause Conversation</button>
+        <button id="continueButton" class="buttonCenter" style="display: none;">Continue Conversation</button>
+        <button id="recordButton" class="buttonCenter"><span class="material-symbols-outlined">
+            mic
+          </span></button>
+        <button id="viewWords"><span class="material-symbols-outlined">
+            chat_apps_script
+          </span></button>
+      </div>
+      <div class="action-inputs">
+        <input type="text">
+        <button id="send-btn"><span class="material-symbols-outlined">
+          send
         </span></button>
-      <button id="viewWords"><span class="material-symbols-outlined">
-          chat_apps_script
-        </span></button>
+      </div>
+      <div class="file-player">
+        <audio id="audioPlayer" controls style="display: none"></audio>
+        <input type="file" id="audioFileInput" style="display: none" />
+      </div>
+      <div id="actions" style="display: none">
+        <button id="saveButton" class="buttonCenter">Save Text</button>
+        <button id="searchButton" class="buttonCenter">Search on the Web</button>
+      </div>
     </div>
-    <div class="file-player">
-      <audio id="audioPlayer" controls style="display: none"></audio>
-      <input type="file" id="audioFileInput" style="display: none" />
-    </div>
-    <div id="actions" style="display: none">
-      <button id="saveButton" class="buttonCenter">Save Text</button>
-      <button id="searchButton" class="buttonCenter">Search on the Web</button>
+    <div class="saved-results">
+      <div id="promptHistory" class="prompt-history"></div>
+      <button id="newPromptBtn" class="new-prompt-btn">Create New Prompt History</button>
     </div>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
   <script src="./script.js"></script>
 </body>
 
